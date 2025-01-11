@@ -1,10 +1,16 @@
 from .models import Flight, Passenger, Reservation
 from rest_framework import serializers
+import re
 
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
         fields = "__all__"
+
+    def validate_flightNumber(self,flightNumber):
+        if(re.match("^[a-zA-Z0-9]*$",flightNumber)==None):
+            raise serializers.ValidationError("Please enter a valid flight number")
+        return flightNumber
 
 class PassengerSerializer(serializers.ModelSerializer):
     class Meta:
