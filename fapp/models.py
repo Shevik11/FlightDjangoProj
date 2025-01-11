@@ -6,7 +6,7 @@ class Flight(models.Model):
     operatingAirlines = models.CharField(max_length=30)
     departureCity = models.CharField(max_length=30)
     arrivalCity = models.CharField(max_length=30)
-    dateOfDeparture = models.DateField()
+    dateOfDeparture = models.CharField(max_length=30)
     estimatedTimeOfDeparture = models.TimeField()
 
 class Passenger(models.Model):
