@@ -28,5 +28,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("flightservices/", include(router.urls)),
     path("flightservices/findFlights/", views.findFlights),
+    path("flightservices/saveReservation/", views.saveReservation),
     path("hello/", views.display),
 ]
