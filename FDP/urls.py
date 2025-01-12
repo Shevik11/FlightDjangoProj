@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from fapp import views
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
 router.register("flights", views.FlightViewSet)
@@ -29,5 +30,6 @@ urlpatterns = [
     path("flightservices/", include(router.urls)),
     path("flightservices/findFlights/", views.findFlights),
     path("flightservices/saveReservation/", views.saveReservation),
+    path("api-auth/", obtain_auth_token, name="api-auth"),
     path("hello/", views.display),
 ]
